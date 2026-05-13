@@ -94,7 +94,7 @@ export function usePaymentFlow() {
   }, [activePayload, executePayment, status]);
 
   const canRetry =
-    Boolean(activePayload) &&
+  activePayload !== undefined &&
     activePayload.attempt < MAX_PAYMENT_ATTEMPTS &&
     (status === 'failed' || status === 'timeout');
 
